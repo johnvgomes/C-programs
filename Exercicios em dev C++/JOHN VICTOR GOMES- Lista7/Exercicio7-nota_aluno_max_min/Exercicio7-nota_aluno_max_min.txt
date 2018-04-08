@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+main ()
+{
+	
+	setlocale(LC_ALL,"portuguese");
+	
+	char nome[20];
+	float nota[3];
+	float maior=0;
+	float menor=999999;
+	char nomemaior[20];
+	char nomemenor[20];
+	int i;
+	int j;
+	
+	for (i=0;i<3;i++)
+	{
+		
+		printf ("Digite o nome do aluno %i\n",(i+1));
+		scanf ("%s",&nome);
+		
+		for (j=0;j<3;j++)
+		{
+			
+			printf ("Digite a nota %i do aluno %s\n",(j+1),nome);
+			scanf ("%f",&nota[j]);
+			
+			if (nota[j]>maior)
+			{
+				
+				maior = nota[j];
+				strcpy(nomemaior,nome);
+				
+			}
+			
+			if (nota[j]<menor)
+			{
+				
+				menor = nota[j];
+				strcpy(nomemenor,nome);
+				
+			}
+			
+		}
+		
+	}
+	
+	printf ("A menor nota foi %.2f do aluno %s\n",menor,nomemenor);
+	printf ("A maior nota foi %.2f do aluno %s\n",maior,nomemaior);
+		
+}
